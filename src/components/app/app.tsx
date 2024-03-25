@@ -1,10 +1,12 @@
 import WelcomeScreen from '../../pages/welcome-screen/welcome-screen.tsx';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import ErrorScreen from '../404/404.tsx';
-import { AppRoute } from '../../const.ts';
+import { AppRoute, AuthorizationStatus } from '../../const.ts';
 import LoginScreen from '../../pages/login/login-screen.tsx';
 import FavoritesScreen from '../../pages/favorites/favorites-screen.tsx';
 import OfferScreen from '../../pages/offer/offer-screen.tsx';
+import PrivateRoute from '../private-route/private-route.tsx';
+
 
 type WelcomeScreenProps = {
   messageCount: number;
@@ -26,7 +28,13 @@ function App({messageCount, placesCount, cardsCount}: WelcomeScreenProps): JSX.E
         />
         <Route
           path={AppRoute.Favorites}
-          element={<FavoritesScreen />}
+          element={
+            <PrivateRoute
+              authorizationStatus={AuthorizationStatus.NoAuth}
+            >
+              <FavoritesScreen />
+            </PrivateRoute>
+          }
         />
         <Route
           path={AppRoute.Offer}
