@@ -1,6 +1,6 @@
 
 
-function WelcomeScreen (): JSX.Element {
+function OfferScreen (): JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -286,4 +286,4 @@ function WelcomeScreen (): JSX.Element {
   );
 }
 
-export default WelcomeScreen;
+export default OfferScreen;
