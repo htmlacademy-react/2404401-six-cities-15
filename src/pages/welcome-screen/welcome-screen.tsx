@@ -1,5 +1,6 @@
 import PlaceCard from '../../components/cards/place-card';
 import Logo from '../../components/logo/logo';
+import { Helmet } from 'react-helmet-async';
 
 type WelcomeScreenProps = {
   messageCount: number;
@@ -14,6 +15,9 @@ function showPlaceCard(cardsCount: number): React.JSX.Element[] {
 function WelcomeScreen ({messageCount, placesCount, cardsCount}: WelcomeScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
+      <Helmet>
+        <title>6 городов</title>
+      </Helmet>
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
