@@ -1,3 +1,5 @@
+import leaflet from 'leaflet';
+
 export const Setting = {
   messageCount: 3,
   placesCount: 312,
@@ -18,3 +20,14 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export const defaultCustomIcon = leaflet.icon({
+  iconUrl: '../../../markup/img/pin.svg',
+  iconSize: [27, 39],
+  iconAnchor: [14, 39],
+});
+export const currentCustomIcon = leaflet.icon({
+  iconUrl: '../../../markup/img/pin-active.svg',
+  iconSize: [27, 39],
+  iconAnchor: [14, 39],
+});

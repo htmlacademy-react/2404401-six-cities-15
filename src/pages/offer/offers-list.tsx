@@ -1,11 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import OfferCard from '../../pages/offer/offer-card';
-import {TOffer} from '../../util/types';
-import {Nullable} from 'vitest';
+import {TOffer, TCity} from '../../util/types';
+import Map from '../../components/map/map';
 
 
-export default function OffersList({offers}: {offers: TOffer[]}): React.JSX.Element {
-  const [activeOffer, setActiveOffer] = useState<Nullable<TOffer>>(null);
+type TOffersList = {
+  offers: TOffer[];
+  activeCity: TCity;
+}
+
+export default function OffersList({offers, activeCity}: TOffersList): React.JSX.Element {
+  const [activeOffer, setActiveOffer] = useState<TOffer | null>(null);
   const handleHover = (offer?: TOffer) => {
     setActiveOffer(offer || null);
   };
@@ -56,7 +61,9 @@ export default function OffersList({offers}: {offers: TOffer[]}): React.JSX.Elem
         </div>
       </section>
       <div className="cities__right-section">
-        <section className="cities__map map"></section>
+        <section className="cities__map map">
+          <Map activeOffer={activeOffer} offers={offers} activeCity={activeCity} />
+        </section>
       </div>
     </div>
   );
