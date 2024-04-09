@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {TOffer} from '../../util/types';
 import Error404 from '../../components/404/404';
 import Reviews from '../../components/review/review';
-import { AuthorizationStatus } from '../../util/const';
+import { AuthorizationStatus, OFFER_INSIDE_ITEM } from '../../util/const';
 
 function getRatingWidth(rating: number): string {
   return `${rating * (100 / 5)}%`;
@@ -79,36 +79,11 @@ function OfferScreen({offers, authStatus}: {offers: TOffer[]; authStatus: Author
             <div className="offer__inside">
               <h2 className="offer__inside-title">What&apos;s inside</h2>
               <ul className="offer__inside-list">
-                <li className="offer__inside-item">
-                  Wi-Fi
-                </li>
-                <li className="offer__inside-item">
-                  Washing machine
-                </li>
-                <li className="offer__inside-item">
-                  Towels
-                </li>
-                <li className="offer__inside-item">
-                  Heating
-                </li>
-                <li className="offer__inside-item">
-                  Coffee machine
-                </li>
-                <li className="offer__inside-item">
-                  Baby seat
-                </li>
-                <li className="offer__inside-item">
-                  Kitchen
-                </li>
-                <li className="offer__inside-item">
-                  Dishwasher
-                </li>
-                <li className="offer__inside-item">
-                  Cabel TV
-                </li>
-                <li className="offer__inside-item">
-                  Fridge
-                </li>
+                {OFFER_INSIDE_ITEM.map((item) => (
+                  <li className='offer__inside-item' key={item}>
+                    {item}
+                  </li>
+                )) as React.JSX.Element[]}
               </ul>
             </div>
             <div className="offer__host">
