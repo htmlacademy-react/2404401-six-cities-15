@@ -1,29 +1,27 @@
-type TApartmentType = 'apartment' | 'room' | 'house' | 'hotel';
+export type TApartmentType = 'apartment' | 'room' | 'house' | 'hotel';
 
-type THost = {
+export type THost = {
   avatarUrl: string;
   name: string;
   isPro: boolean;
 }
-
-type TLocationCoordinates = {
+export type TLocationCoordinates = {
   latitude: number;
   longitude: number;
   zoom: number;
 }
 
-type TCity = {
+export type TCity = {
   name: string;
   location: TLocationCoordinates;
 }
-
 export type TOffer = {
   id: string;
   title: string;
   type: TApartmentType;
   price: number;
   city: TCity;
-  location: string;
+  location: TLocationCoordinates;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
@@ -33,4 +31,18 @@ export type TOffer = {
   host: THost;
   images: string[];
   maxAdults: number;
+  reviews: TReview[];
+}
+export type TReview = {
+  id: number;
+  avatarUrl: string;
+  name: string;
+  rate: number;
+  message: string;
+  date: string;
+}
+
+export type TOffersByCity = {
+  city: TCity;
+  offers: TOffer[];
 }

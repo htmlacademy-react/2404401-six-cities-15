@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/app/app.tsx';
-import { TOffer } from './util/types.tsx';
-import { generateOffers } from './mocks/offers.ts';
-
-
+import App from './components/app/app';
+import {generateOffers} from './mocks/offers';
+import {TOffer} from './util/types';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const offers: TOffer[] = generateOffers(20);
+const offers: TOffer[] = generateOffers(50);
 
 root.render(
   <React.StrictMode>
-    <App
-      offers={offers}
-    />
+    <App offers={offers}/>
   </React.StrictMode>
 );
