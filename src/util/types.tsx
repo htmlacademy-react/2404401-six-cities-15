@@ -31,6 +31,15 @@ export type TOffer = {
   host: THost;
   images: string[];
   maxAdults: number;
+  reviews: TReview[];
+}
+export type TReview = {
+  id: number;
+  avatarUrl: string;
+  name: string;
+  rate: number;
+  message: string;
+  date: string;
 }
 
 export type TOffersByCity = {

@@ -6,12 +6,13 @@ import {TCity, TOffer} from '../../util/types';
 import {currentCustomIcon, defaultCustomIcon} from '../../util/const';
 
 type TMap = {
+  className: string;
   offers: TOffer[];
   activeOffer: TOffer | null;
   activeCity: TCity;
 }
 
-export default function Map({offers, activeOffer, activeCity}: TMap): React.JSX.Element {
+export default function Map({className, offers, activeOffer, activeCity}: TMap): React.JSX.Element {
   const mapRef = useRef<HTMLElement | null>(null);
   const map = useMap(mapRef, activeCity.location);
 
@@ -38,7 +39,7 @@ export default function Map({offers, activeOffer, activeCity}: TMap): React.JSX.
 
   return (
     <section
-      className="cities__map map"
+      className={`${className} map`}
       style={{ height: '631px' }}
       ref={mapRef}
     >
